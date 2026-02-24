@@ -1,0 +1,10 @@
+{
+  "name": "ai-website",
+  "version": "1.0.0",
+  "description": "A simple AI chat website",
+  "type": "module",
+  "main": "server.mjs",
+  "scripts": {
+    "start": "node server.mjs"
+  }
+}
