@@ -1,41 +1,183 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nova AI Studio</title>
+    <title>Tempomeme Quest</title>
+    <meta
+      name="description"
+      content="Submit your EVM wallet after completing the @Tempomemecoin X quest."
+    />
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Orbitron:wght@600;700;800&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
-    <div class="bg-shape shape-1"></div>
-    <div class="bg-shape shape-2"></div>
-    <main class="app">
-      <section class="hero">
-        <p class="tag">YOUR AI SITE IS LIVE</p>
-        <h1>Nova AI Studio</h1>
-        <p class="subtitle">输入你的想法，立即得到可执行内容。</p>
-      </section>
+    <div class="glow glow-left" aria-hidden="true"></div>
+    <div class="glow glow-right" aria-hidden="true"></div>
 
-      <section class="chat-card">
-        <div id="chat" class="chat"></div>
-        <form id="chat-form" class="chat-form">
-          <textarea
-            id="message"
-            name="message"
-            rows="3"
-            placeholder="例如：帮我写一个产品发布页文案"
-            required
-          ></textarea>
-          <button id="send-btn" type="submit">发送</button>
-        </form>
+    <main class="page-shell">
+      <header class="topbar">
+        <a class="brand" href="/" aria-label="Tempomeme home">
+          <img class="brand-mark" src="/logo.svg" alt="Tempomeme logo" />
+          <div>
+            <p class="brand-name">Tempomeme</p>
+            <p class="brand-sub">A token launchpad powered by Tempo</p>
+          </div>
+        </a>
+
+        <a
+          class="topbar-link"
+          href="https://x.com/Tempomemecoin"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Open @Tempomemecoin
+        </a>
+      </header>
+
+      <section class="hero-grid">
+        <article class="hero-card">
+          <p class="eyebrow">TEMPO COMMUNITY QUEST</p>
+          <h1>Complete the X quest and submit your EVM wallet</h1>
+          <p class="lead">
+            Follow the steps below to follow, comment, like, and repost, then submit the
+            same EVM wallet address here. Make sure the wallet address in your X comment
+            exactly matches the one in this form.
+          </p>
+
+          <div class="step-list">
+            <article class="step-card">
+              <div class="step-number">01</div>
+              <div class="step-copy">
+                <h2>Follow the X account</h2>
+                <p>
+                  Click
+                  <a
+                    href="https://x.com/Tempomemecoin"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    @Tempomemecoin
+                  </a>
+                  to open the official account and follow it.
+                </p>
+              </div>
+            </article>
+
+            <article class="step-card">
+              <div class="step-number">02</div>
+              <div class="step-copy">
+                <h2>Leave your wallet in the comments</h2>
+                <p>Post your EVM wallet in the campaign tweet replies and keep it identical to the form submission.</p>
+              </div>
+            </article>
+
+            <article class="step-card">
+              <div class="step-number">03</div>
+              <div class="step-copy">
+                <h2>Like and repost the campaign tweet</h2>
+                <p>Complete the required engagement on the campaign tweet, then come back here to submit the form.</p>
+              </div>
+            </article>
+          </div>
+
+          <div class="action-row">
+            <a
+              class="primary-link"
+              href="https://x.com/Tempomemecoin"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Go to X to complete the quest
+            </a>
+            <p class="helper-note">
+              If the team later points to a specific campaign tweet, please follow the latest instructions on the account.
+            </p>
+          </div>
+        </article>
+
+        <section class="form-card" aria-labelledby="form-title">
+          <div class="form-header">
+            <div>
+              <p class="eyebrow">QUESTIONNAIRE</p>
+              <h2 id="form-title">Submit your entry</h2>
+            </div>
+            <div class="progress-chip">
+              <span>Task status</span>
+              <strong id="progress-value">0/3</strong>
+            </div>
+          </div>
+
+          <form id="quest-form" class="quest-form" novalidate>
+            <label class="field" for="wallet-address">
+              <span class="field-label">EVM wallet address</span>
+              <input
+                id="wallet-address"
+                name="walletAddress"
+                type="text"
+                inputmode="text"
+                autocomplete="off"
+                placeholder="0x1234...abcd"
+                required
+              />
+              <span class="field-help">Only standard 42-character EVM addresses are accepted.</span>
+            </label>
+
+            <div class="checklist" role="group" aria-label="Task confirmation">
+              <label class="check-item" for="task-follow">
+                <input id="task-follow" name="follow" type="checkbox" />
+                <span class="check-copy">
+                  <strong>I followed @Tempomemecoin</strong>
+                  <span>
+                    Need to do it now? Click here:
+                    <a
+                      class="inline-link"
+                      href="https://x.com/Tempomemecoin"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      https://x.com/Tempomemecoin
+                    </a>
+                  </span>
+                </span>
+              </label>
+
+              <label class="check-item" for="task-comment">
+                <input id="task-comment" name="commentWallet" type="checkbox" />
+                <span class="check-copy">
+                  <strong>I left my EVM wallet in the comments</strong>
+                  <span>Make sure the address in your comment exactly matches the address submitted here.</span>
+                </span>
+              </label>
+
+              <label class="check-item" for="task-engage">
+                <input id="task-engage" name="likeAndRepost" type="checkbox" />
+                <span class="check-copy">
+                  <strong>I liked and reposted the campaign tweet</strong>
+                  <span>Please follow the requirements shared by the official @Tempomemecoin account.</span>
+                </span>
+              </label>
+            </div>
+
+            <button id="submit-btn" class="submit-btn" type="submit">Submit entry</button>
+
+            <div id="form-feedback" class="form-feedback" aria-live="polite"></div>
+          </form>
+
+          <div class="form-footer">
+            <p>After submitting, please wait for the official review and follow-up announcement.</p>
+            <p>Do not submit multiple wallet addresses, as that may affect verification.</p>
+          </div>
+        </section>
       </section>
     </main>
+
     <script src="/script.js" type="module"></script>
   </body>
 </html>

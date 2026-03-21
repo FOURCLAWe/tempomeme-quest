@@ -1,7 +1,7 @@
 {
-  "name": "ai-website",
+  "name": "tempomeme-quest",
   "version": "1.0.0",
-  "description": "A simple AI chat website",
+  "description": "Tempomeme quest landing page and EVM wallet submission site",
   "type": "module",
   "main": "server.mjs",
   "scripts": {

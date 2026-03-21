@@ -1,31 +1,40 @@
-# AI Website
+# Tempomeme Quest
 
-一个可直接运行的 AI 聊天网站，包含：
-- 前端聊天界面（移动端和桌面端适配）
-- Node.js 后端代理调用 Anthropic Claude API（不在前端暴露 key）
+A landing page and submission form for the Tempomeme X quest.
 
-## 1) 配置环境变量
+## Features
 
-创建 `.env` 文件（可复制 `.env.example`）：
+- Tempomeme branded landing page with custom logo and favicon
+- EVM wallet submission form with client-side validation
+- Quest checklist for follow, comment, like, and repost actions
+- Node.js endpoint that stores submissions locally in `data/survey-submissions.ndjson`
 
-```env
-ANTHROPIC_API_KEY=your_anthropic_api_key_here
-ANTHROPIC_MODEL=claude-3-5-sonnet-latest
-PORT=3000
-```
-
-## 2) 启动
+## Run locally
 
 ```bash
 npm start
 ```
 
-打开 `http://localhost:3000`
+Open [http://localhost:3000](http://localhost:3000).
 
-## 3) 推送到 GitHub
+## Submission storage
 
-```bash
-git add .
-git commit -m "feat: create AI website"
-git push -u origin main
+Form submissions are written to:
+
+```text
+data/survey-submissions.ndjson
+```
+
+This file is ignored by git.
+
+## Optional environment variables
+
+The current quest site does not require environment variables for the survey flow.
+This repo still includes the legacy `/api/chat` endpoint from the original starter, so
+you only need a `.env` file if you plan to use that endpoint as well.
+
+```env
+ANTHROPIC_API_KEY=your_anthropic_api_key_here
+ANTHROPIC_MODEL=claude-3-5-sonnet-latest
+PORT=3000
 ```
