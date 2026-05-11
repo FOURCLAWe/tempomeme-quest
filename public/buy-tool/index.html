@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Swap Tx Parser</title>
+    <link rel="stylesheet" href="/buy-tool/styles.css?v=4" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Ethereum mainnet</p>
+          <h1>交易解析器</h1>
+        </div>
+        <a class="ghost-link" href="https://etherscan.io/" target="_blank" rel="noreferrer">Etherscan</a>
+      </header>
+
+      <section class="workspace">
+        <form class="panel form-panel" id="analyze-form">
+          <div class="segmented" role="radiogroup" aria-label="交易类型">
+            <label>
+              <input type="radio" name="tradeType" value="buy" checked />
+              <span>买入</span>
+            </label>
+            <label>
+              <input type="radio" name="tradeType" value="sell" />
+              <span>卖出</span>
+            </label>
+          </div>
+
+          <label class="field">
+            <span id="tx-label">成功买入 tx</span>
+            <input
+              id="tx-hash"
+              name="txHash"
+              autocomplete="off"
+              spellcheck="false"
+              placeholder="0x..."
+              required
+            />
+          </label>
+
+          <label class="field">
+            <span>你的钱包地址</span>
+            <input
+              id="buyer-address"
+              name="buyerAddress"
+              autocomplete="off"
+              spellcheck="false"
+              placeholder="0x..."
+            />
+          </label>
+
+          <label class="field">
+            <span id="amount-label">买入 ETH 数量</span>
+            <input id="trade-amount" name="tradeAmount" inputmode="decimal" placeholder="0.05" />
+          </label>
+
+          <label class="field">
+            <span>滑点 %</span>
+            <input id="slippage-percent" name="slippagePercent" inputmode="decimal" value="30" placeholder="30" />
+          </label>
+
+          <label class="switch-row">
+            <input id="force-min-out-zero" name="forceMinOutZero" type="checkbox" />
+            <span>强制成交</span>
+          </label>
+
+          <button class="primary-btn" type="submit">解析并生成</button>
+          <p class="form-status" id="form-status">准备好了，粘完整 tx 后点按钮。</p>
+          <p class="mini-note" id="mode-note">只生成参数，不发送交易。未知路由先小额试单。</p>
+        </form>
+
+        <section class="panel result-panel" aria-live="polite">
+          <div id="empty-state" class="empty-state">
+            <h2>等待交易哈希</h2>
+            <p id="empty-copy">输入一笔已经成功买入的 Ethereum 交易，工具会解析购买路径。</p>
+          </div>
+
+          <div id="loading-state" class="loading-state" hidden>
+            <div class="loader"></div>
+            <p>正在从 RPC 读取交易和日志</p>
+          </div>
+
+          <div id="result" class="result" hidden></div>
+        </section>
+      </section>
+    </main>
+
+    <template id="copy-row-template">
+      <div class="copy-row">
+        <div class="copy-heading">
+          <span class="copy-label"></span>
+          <button class="copy-btn" type="button">复制</button>
+        </div>
+        <textarea readonly spellcheck="false"></textarea>
+      </div>
+    </template>
+
+    <script src="/buy-tool/app.js?v=4" type="module"></script>
+  </body>
+</html>
